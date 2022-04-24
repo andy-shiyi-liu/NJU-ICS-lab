@@ -282,7 +282,7 @@ Disassembly of section .text:
  80492f1:	e8 6b 0a 00 00       	call   8049d61 <read_line>
  80492f6:	89 45 f4             	mov    %eax,-0xc(%ebp)		# save input string addr to -0xc(%ebp)
  80492f9:	83 ec 0c             	sub    $0xc,%esp			# buffer
- 80492fc:	ff 75 f4             	pushl  -0xc(%ebp)			# push the string addr to stack
+ 80492fc:	ff 75 f4             	pushl  -0xc(%ebp)			# push input string addr to stack
  80492ff:	e8 61 01 00 00       	call   8049465 <phase_0>
  8049304:	83 c4 10             	add    $0x10,%esp
  8049307:	85 c0                	test   %eax,%eax
@@ -293,9 +293,9 @@ Disassembly of section .text:
  8049318:	e8 73 fd ff ff       	call   8049090 <puts@plt>
  804931d:	83 c4 10             	add    $0x10,%esp
  8049320:	e8 3c 0a 00 00       	call   8049d61 <read_line>
- 8049325:	89 45 f4             	mov    %eax,-0xc(%ebp)
- 8049328:	83 ec 0c             	sub    $0xc,%esp
- 804932b:	ff 75 f4             	pushl  -0xc(%ebp)
+ 8049325:	89 45 f4             	mov    %eax,-0xc(%ebp)		# save input string addr to -0xc(%ebp)
+ 8049328:	83 ec 0c             	sub    $0xc,%esp			# buffer
+ 804932b:	ff 75 f4             	pushl  -0xc(%ebp)			# push input string addr to stack
  804932e:	e8 62 01 00 00       	call   8049495 <phase_1>
  8049333:	83 c4 10             	add    $0x10,%esp
  8049336:	85 c0                	test   %eax,%eax
@@ -412,42 +412,42 @@ Disassembly of section .text:
  8049494:	c3                   	ret    
 
 08049495 <phase_1>:
- 8049495:	55                   	push   %ebp
- 8049496:	89 e5                	mov    %esp,%ebp
- 8049498:	83 ec 18             	sub    $0x18,%esp
- 804949b:	c7 45 f4 46 c1 f4 18 	movl   $0x18f4c146,-0xc(%ebp)
- 80494a2:	db 45 f4             	fildl  -0xc(%ebp)
- 80494a5:	d9 5d f0             	fstps  -0x10(%ebp)
+ 8049495:	55                   	push   %ebp								# callee save
+ 8049496:	89 e5                	mov    %esp,%ebp						# save esp -> ebp
+ 8049498:	83 ec 18             	sub    $0x18,%esp						# place for local var
+ 804949b:	c7 45 f4 46 c1 f4 18 	movl   $0x18f4c146,-0xc(%ebp)			# inmmediate int number
+ 80494a2:	db 45 f4             	fildl  -0xc(%ebp)						# convert int to float and push to fpu stack
+ 80494a5:	d9 5d f0             	fstps  -0x10(%ebp)						# pop fpu stack value to mem
  80494a8:	8d 45 e8             	lea    -0x18(%ebp),%eax
  80494ab:	50                   	push   %eax
  80494ac:	8d 45 ec             	lea    -0x14(%ebp),%eax
  80494af:	50                   	push   %eax
- 80494b0:	68 0f a2 04 08       	push   $0x804a20f
+ 80494b0:	68 0f a2 04 08       	push   $0x804a20f						# "%d %d"
  80494b5:	ff 75 08             	pushl  0x8(%ebp)
- 80494b8:	e8 13 fc ff ff       	call   80490d0 <__isoc99_sscanf@plt>
+ 80494b8:	e8 13 fc ff ff       	call   80490d0 <__isoc99_sscanf@plt>	# sscanf(*inpt_str, "%d %d", -0x14(%ebp), -0x18(%ebp))
  80494bd:	83 c4 10             	add    $0x10,%esp
- 80494c0:	83 f8 02             	cmp    $0x2,%eax
+ 80494c0:	83 f8 02             	cmp    $0x2,%eax						# confirm read 2 value
  80494c3:	74 0c                	je     80494d1 <phase_1+0x3c>
  80494c5:	e8 da 09 00 00       	call   8049ea4 <explode_bomb>
  80494ca:	b8 00 00 00 00       	mov    $0x0,%eax
  80494cf:	eb 34                	jmp    8049505 <phase_1+0x70>
- 80494d1:	8d 45 f0             	lea    -0x10(%ebp),%eax
- 80494d4:	83 c0 02             	add    $0x2,%eax
- 80494d7:	0f b7 00             	movzwl (%eax),%eax
- 80494da:	0f bf d0             	movswl %ax,%edx
- 80494dd:	8b 45 ec             	mov    -0x14(%ebp),%eax
- 80494e0:	39 c2                	cmp    %eax,%edx
+ 80494d1:	8d 45 f0             	lea    -0x10(%ebp),%eax	# eax: Addr1 -0x10
+ 80494d4:	83 c0 02             	add    $0x2,%eax		# eax: Addr1 - 0x8
+ 80494d7:	0f b7 00             	movzwl (%eax),%eax		# eax: 0xffff
+ 80494da:	0f bf d0             	movswl %ax,%edx			# edx: 0xffffffff
+ 80494dd:	8b 45 ec             	mov    -0x14(%ebp),%eax	# eax: inpt_1
+ 80494e0:	39 c2                	cmp    %eax,%edx		# assert(inpt_1 == 0xffffffff) 0xffffe138: -1
  80494e2:	75 10                	jne    80494f4 <phase_1+0x5f>
- 80494e4:	8d 45 f0             	lea    -0x10(%ebp),%eax
- 80494e7:	0f b7 00             	movzwl (%eax),%eax
- 80494ea:	0f bf d0             	movswl %ax,%edx
- 80494ed:	8b 45 e8             	mov    -0x18(%ebp),%eax
- 80494f0:	39 c2                	cmp    %eax,%edx
+ 80494e4:	8d 45 f0             	lea    -0x10(%ebp),%eax	# eax: Addr1 -0x10
+ 80494e7:	0f b7 00             	movzwl (%eax),%eax		# eax: 0xe138
+ 80494ea:	0f bf d0             	movswl %ax,%edx			# edx: 0xffffe138
+ 80494ed:	8b 45 e8             	mov    -0x18(%ebp),%eax	# eax: inpt_2
+ 80494f0:	39 c2                	cmp    %eax,%edx		# assert(inpt_2 = 0xffffe138) 0xffffe138: -7880
  80494f2:	74 0c                	je     8049500 <phase_1+0x6b>
  80494f4:	e8 ab 09 00 00       	call   8049ea4 <explode_bomb>
- 80494f9:	b8 00 00 00 00       	mov    $0x0,%eax
+ 80494f9:	b8 00 00 00 00       	mov    $0x0,%eax 					# return 0
  80494fe:	eb 05                	jmp    8049505 <phase_1+0x70>
- 8049500:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8049500:	b8 01 00 00 00       	mov    $0x1,%eax 					# return 1
  8049505:	c9                   	leave  
  8049506:	c3                   	ret    
 
