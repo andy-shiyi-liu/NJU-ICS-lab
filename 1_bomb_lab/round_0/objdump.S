@@ -686,30 +686,30 @@ Disassembly of section .text:
  80497d8:	89 e5                	mov    %esp,%ebp
  80497da:	83 ec 18             	sub    $0x18,%esp
  80497dd:	83 ec 0c             	sub    $0xc,%esp
- 80497e0:	ff 75 08             	pushl  0x8(%ebp)
+ 80497e0:	ff 75 08             	pushl  0x8(%ebp)				# push input_str_addr
  80497e3:	e8 28 04 00 00       	call   8049c10 <string_length>
  80497e8:	83 c4 10             	add    $0x10,%esp
  80497eb:	89 45 ec             	mov    %eax,-0x14(%ebp)
- 80497ee:	83 7d ec 05          	cmpl   $0x5,-0x14(%ebp)
+ 80497ee:	83 7d ec 05          	cmpl   $0x5,-0x14(%ebp)			# assert(strlen(input_str == 5))
  80497f2:	74 0c                	je     8049800 <phase_5+0x29>
  80497f4:	e8 ab 06 00 00       	call   8049ea4 <explode_bomb>
  80497f9:	b8 00 00 00 00       	mov    $0x0,%eax
  80497fe:	eb 4c                	jmp    804984c <phase_5+0x75>
- 8049800:	c7 45 f0 00 00 00 00 	movl   $0x0,-0x10(%ebp)
- 8049807:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
- 804980e:	eb 1f                	jmp    804982f <phase_5+0x58>
- 8049810:	8b 55 f4             	mov    -0xc(%ebp),%edx
- 8049813:	8b 45 08             	mov    0x8(%ebp),%eax
- 8049816:	01 d0                	add    %edx,%eax
- 8049818:	0f b6 00             	movzbl (%eax),%eax
- 804981b:	0f be c0             	movsbl %al,%eax
- 804981e:	83 e0 0f             	and    $0xf,%eax
- 8049821:	8b 04 85 00 c2 04 08 	mov    0x804c200(,%eax,4),%eax
- 8049828:	01 45 f0             	add    %eax,-0x10(%ebp)
- 804982b:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
- 804982f:	83 7d f4 04          	cmpl   $0x4,-0xc(%ebp)
- 8049833:	7e db                	jle    8049810 <phase_5+0x39>
- 8049835:	83 7d f0 2f          	cmpl   $0x2f,-0x10(%ebp)
+ 8049800:	c7 45 f0 00 00 00 00 	movl   $0x0,-0x10(%ebp)	# int a = 0
+ 8049807:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)	# int i = 0
+ 804980e:	eb 1f                	jmp    804982f <phase_5+0x58>	# for statement init compare
+ 8049810:	8b 55 f4             	mov    -0xc(%ebp),%edx	# edx = i
+ 8049813:	8b 45 08             	mov    0x8(%ebp),%eax	# eax = input_str_addr
+ 8049816:	01 d0                	add    %edx,%eax		# eax = input_str_addr + i
+ 8049818:	0f b6 00             	movzbl (%eax),%eax		# eax = (byte*) &(input_str_addr + i)
+ 804981b:	0f be c0             	movsbl %al,%eax			# eax = sign_ext((byte*) &(input_str_addr + i))
+ 804981e:	83 e0 0f             	and    $0xf,%eax		# eax = ((byte*) &(input_str_addr + i)) & 0xf
+ 8049821:	8b 04 85 00 c2 04 08 	mov    0x804c200(,%eax,4),%eax	# eax = array[((byte*) &(input_str_addr + i)) & 0xf]   # addr in [] range from 0 to 15.
+ 8049828:	01 45 f0             	add    %eax,-0x10(%ebp)			# a = a + array[((byte*) &(input_str_addr + i)) & 0xf]
+ 804982b:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)			# i++
+ 804982f:	83 7d f4 04          	cmpl   $0x4,-0xc(%ebp)			# i <= 4 ?
+ 8049833:	7e db                	jle    8049810 <phase_5+0x39>	# loop
+ 8049835:	83 7d f0 2f          	cmpl   $0x2f,-0x10(%ebp)		# assert(a = 0x2f)
  8049839:	74 0c                	je     8049847 <phase_5+0x70>
  804983b:	e8 64 06 00 00       	call   8049ea4 <explode_bomb>
  8049840:	b8 00 00 00 00       	mov    $0x0,%eax

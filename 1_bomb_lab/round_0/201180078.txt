@@ -1,2 +1,6 @@
 Object files define and reference symbols.
 19911 -23030
+241 240 237 232 225 216 205 192 177
+24 u 158
+12 636
+09677
