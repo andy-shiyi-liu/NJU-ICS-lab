@@ -4,3 +4,4 @@ Object files define and reference symbols.
 24 u 158
 12 636
 09677
+5 3 2 1 4 6
