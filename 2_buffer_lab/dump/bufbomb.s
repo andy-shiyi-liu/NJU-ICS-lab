@@ -430,42 +430,42 @@ Disassembly of section .text:
  804949c:	e8 8f fc ff ff       	call   8049130 <exit@plt>
 
 080494a1 <eval2equal>:
- 80494a1:	55                   	push   %ebp
- 80494a2:	89 e5                	mov    %esp,%ebp
- 80494a4:	81 ec a8 00 00 00    	sub    $0xa8,%esp
+ 80494a1:	55                   	push   %ebp						# after: *%ebp: %ebp, *(%ebp+4): ret addr, *(%ebp+8): *str, *(ebp+c): cookie
+ 80494a2:	89 e5                	mov    %esp,%ebp				# stack frame base
+ 80494a4:	81 ec a8 00 00 00    	sub    $0xa8,%esp				# stack frame
  80494aa:	e8 81 fd ff ff       	call   8049230 <random@plt>
- 80494af:	89 c1                	mov    %eax,%ecx
- 80494b1:	ba 39 8e e3 38       	mov    $0x38e38e39,%edx
+ 80494af:	89 c1                	mov    %eax,%ecx				# %ecx: randNum
+ 80494b1:	ba 39 8e e3 38       	mov    $0x38e38e39,%edx			
  80494b6:	89 c8                	mov    %ecx,%eax
- 80494b8:	f7 ea                	imul   %edx
- 80494ba:	c1 fa 05             	sar    $0x5,%edx
- 80494bd:	89 c8                	mov    %ecx,%eax
- 80494bf:	c1 f8 1f             	sar    $0x1f,%eax
+ 80494b8:	f7 ea                	imul   %edx						# %edx:%eax = %eax * %edx
+ 80494ba:	c1 fa 05             	sar    $0x5,%edx				# %edx = %edx >> 5
+ 80494bd:	89 c8                	mov    %ecx,%eax				# %eax = randNum
+ 80494bf:	c1 f8 1f             	sar    $0x1f,%eax				# %eax = randNum >> 31
  80494c2:	29 c2                	sub    %eax,%edx
  80494c4:	89 d0                	mov    %edx,%eax
  80494c6:	c1 e0 03             	shl    $0x3,%eax
  80494c9:	01 d0                	add    %edx,%eax
  80494cb:	c1 e0 04             	shl    $0x4,%eax
  80494ce:	29 c1                	sub    %eax,%ecx
- 80494d0:	89 ca                	mov    %ecx,%edx
- 80494d2:	8d 85 5a ff ff ff    	lea    -0xa6(%ebp),%eax
- 80494d8:	01 d0                	add    %edx,%eax
- 80494da:	89 45 f4             	mov    %eax,-0xc(%ebp)
- 80494dd:	83 ec 04             	sub    $0x4,%esp
- 80494e0:	ff 75 0c             	pushl  0xc(%ebp)
- 80494e3:	68 eb b0 04 08       	push   $0x804b0eb
- 80494e8:	ff 75 f4             	pushl  -0xc(%ebp)
- 80494eb:	e8 10 fd ff ff       	call   8049200 <sprintf@plt>
- 80494f0:	83 c4 10             	add    $0x10,%esp
- 80494f3:	83 ec 04             	sub    $0x4,%esp
- 80494f6:	6a 09                	push   $0x9
- 80494f8:	ff 75 f4             	pushl  -0xc(%ebp)
- 80494fb:	ff 75 08             	pushl  0x8(%ebp)
+ 80494d0:	89 ca                	mov    %ecx,%edx				# ... opreations, use gdb to get answer
+ 80494d2:	8d 85 5a ff ff ff    	lea    -0xa6(%ebp),%eax			# %eax = %esp + 0x2
+ 80494d8:	01 d0                	add    %edx,%eax				# %eax = %esp + 0x2 + %edx
+ 80494da:	89 45 f4             	mov    %eax,-0xc(%ebp)			# char *str1 = %eax = %esp + 0x2 + %edx
+ 80494dd:	83 ec 04             	sub    $0x4,%esp				# %esp = %ebp - 0xac
+ 80494e0:	ff 75 0c             	pushl  0xc(%ebp)				# push %ebp+12 : cookie
+ 80494e3:	68 eb b0 04 08       	push   $0x804b0eb				# (char*)0x804b0eb : "%.8X"
+ 80494e8:	ff 75 f4             	pushl  -0xc(%ebp)				# %esp + 0x2 + %edx : char *str1
+ 80494eb:	e8 10 fd ff ff       	call   8049200 <sprintf@plt>	# sprintf(str1, "%.8X", cookie)
+ 80494f0:	83 c4 10             	add    $0x10,%esp				# %esp = %ebp - 0xbc
+ 80494f3:	83 ec 04             	sub    $0x4,%esp				# %esp = %ebp - 0xb8
+ 80494f6:	6a 09                	push   $0x9						# cmp 9 bytes
+ 80494f8:	ff 75 f4             	pushl  -0xc(%ebp)				# %esp + 0x2 + %edx : char *str1
+ 80494fb:	ff 75 08             	pushl  0x8(%ebp)				# *str
  80494fe:	e8 ad fb ff ff       	call   80490b0 <memcmp@plt>
  8049503:	83 c4 10             	add    $0x10,%esp
  8049506:	85 c0                	test   %eax,%eax
  8049508:	0f 94 c0             	sete   %al
- 804950b:	0f b6 c0             	movzbl %al,%eax
+ 804950b:	0f b6 c0             	movzbl %al,%eax					# return memcmp() == 0
  804950e:	c9                   	leave  
  804950f:	c3                   	ret    
 

