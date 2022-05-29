@@ -1,0 +1,13 @@
+sub $0x40, %esp
+movl $0x31313032, -0xc(%ebp)
+movl $0x37303038, -0x8(%ebp)
+movl $0x00000037, -0x4(%ebp)
+
+lea -0xc(%ebp), %eax
+movl $0x804a10e, %edx
+pushl %eax
+pushl %edx
+
+call 0xffffffa6
+
+add $0x48, %esp

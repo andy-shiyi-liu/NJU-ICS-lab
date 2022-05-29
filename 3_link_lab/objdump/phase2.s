@@ -1,5 +1,5 @@
 
-/home/ubuntu/work/ICS_lab/3_link_lab/src/phase2.o:     file format elf32-i386
+/home/ubuntu/work/ICS_lab/3_link_lab//src/phase2.o:     file format elf32-i386
 
 
 Disassembly of section .text:
@@ -66,46 +66,15 @@ Disassembly of section .text:
 000000d2 <do_phase>:
   d2:	55                   	push   %ebp
   d3:	89 e5                	mov    %esp,%ebp
-  d5:	90                   	nop
-  d6:	90                   	nop
-  d7:	90                   	nop
-  d8:	90                   	nop
-  d9:	90                   	nop
-  da:	90                   	nop
-  db:	90                   	nop
-  dc:	90                   	nop
-  dd:	90                   	nop
-  de:	90                   	nop
-  df:	90                   	nop
-  e0:	90                   	nop
-  e1:	90                   	nop
-  e2:	90                   	nop
-  e3:	90                   	nop
-  e4:	90                   	nop
-  e5:	90                   	nop
-  e6:	90                   	nop
-  e7:	90                   	nop
-  e8:	90                   	nop
-  e9:	90                   	nop
-  ea:	90                   	nop
-  eb:	90                   	nop
-  ec:	90                   	nop
-  ed:	90                   	nop
-  ee:	90                   	nop
-  ef:	90                   	nop
-  f0:	90                   	nop
-  f1:	90                   	nop
-  f2:	90                   	nop
-  f3:	90                   	nop
-  f4:	90                   	nop
-  f5:	90                   	nop
-  f6:	90                   	nop
-  f7:	90                   	nop
-  f8:	90                   	nop
-  f9:	90                   	nop
-  fa:	90                   	nop
-  fb:	90                   	nop
-  fc:	90                   	nop
+  d5:	83 ec 40             	sub    $0x40,%esp
+  d8:	c7 45 f4 32 30 31 31 	movl   $0x31313032,-0xc(%ebp)
+  df:	c7 45 f8 38 30 30 37 	movl   $0x37303038,-0x8(%ebp)
+  e6:	c7 45 fc 37 00 00 00 	movl   $0x37,-0x4(%ebp)
+  ed:	8d 45 f4             	lea    -0xc(%ebp),%eax
+  f0:	8b 15 0e a1 04 08    	mov    0x804a10e,%edx
+  f6:	50                   	push   %eax
+  f7:	52                   	push   %edx
+  f8:	e8 a5 ff ff ff       	call   a2 <CIMDhRcy>
   fd:	90                   	nop
   fe:	90                   	nop
   ff:	90                   	nop
