@@ -53,59 +53,59 @@ Disassembly of section .text:
   5a:	83 e8 41             	sub    $0x41,%eax
   5d:	83 f8 19             	cmp    $0x19,%eax
   60:	0f 87 b0 00 00 00    	ja     116 <do_phase+0xf4>
-  66:	8b 04 85 04 00 00 00 	mov    0x4(,%eax,4),%eax
+  66:	8b 04 85 04 00 00 00 	mov    0x4(,%eax,4),%eax  # .rodata
   6d:	ff e0                	jmp    *%eax
-  6f:	c6 45 f7 38          	movb   $0x38,-0x9(%ebp)
+  6f:	c6 45 f7 38          	movb   $0x38,-0x9(%ebp)         # 8
   73:	e9 9e 00 00 00       	jmp    116 <do_phase+0xf4>
-  78:	c6 45 f7 7a          	movb   $0x7a,-0x9(%ebp)
+  78:	c6 45 f7 7a          	movb   $0x7a,-0x9(%ebp)         # z
   7c:	e9 95 00 00 00       	jmp    116 <do_phase+0xf4>
-  81:	c6 45 f7 5f          	movb   $0x5f,-0x9(%ebp)
+  81:	c6 45 f7 5f          	movb   $0x5f,-0x9(%ebp)         # _
   85:	e9 8c 00 00 00       	jmp    116 <do_phase+0xf4>
-  8a:	c6 45 f7 36          	movb   $0x36,-0x9(%ebp)
+  8a:	c6 45 f7 36          	movb   $0x36,-0x9(%ebp)         # 6
   8e:	e9 83 00 00 00       	jmp    116 <do_phase+0xf4>
-  93:	c6 45 f7 31          	movb   $0x31,-0x9(%ebp)
+  93:	c6 45 f7 31          	movb   $0x31,-0x9(%ebp)         # 1
   97:	eb 7d                	jmp    116 <do_phase+0xf4>
-  99:	c6 45 f7 34          	movb   $0x34,-0x9(%ebp)
+  99:	c6 45 f7 34          	movb   $0x34,-0x9(%ebp)         # 4
   9d:	eb 77                	jmp    116 <do_phase+0xf4>
-  9f:	c6 45 f7 35          	movb   $0x35,-0x9(%ebp)
+  9f:	c6 45 f7 35          	movb   $0x35,-0x9(%ebp)         # 5
   a3:	eb 71                	jmp    116 <do_phase+0xf4>
-  a5:	c6 45 f7 58          	movb   $0x58,-0x9(%ebp)
+  a5:	c6 45 f7 58          	movb   $0x58,-0x9(%ebp)         # X
   a9:	eb 6b                	jmp    116 <do_phase+0xf4>
-  ab:	c6 45 f7 4e          	movb   $0x4e,-0x9(%ebp)
+  ab:	c6 45 f7 4e          	movb   $0x4e,-0x9(%ebp)         # N
   af:	eb 65                	jmp    116 <do_phase+0xf4>
-  b1:	c6 45 f7 30          	movb   $0x30,-0x9(%ebp)
+  b1:	c6 45 f7 30          	movb   $0x30,-0x9(%ebp)         # 0
   b5:	eb 5f                	jmp    116 <do_phase+0xf4>
-  b7:	c6 45 f7 67          	movb   $0x67,-0x9(%ebp)
+  b7:	c6 45 f7 67          	movb   $0x67,-0x9(%ebp)         # g
   bb:	eb 59                	jmp    116 <do_phase+0xf4>
-  bd:	c6 45 f7 77          	movb   $0x77,-0x9(%ebp)
+  bd:	c6 45 f7 77          	movb   $0x77,-0x9(%ebp)         # w
   c1:	eb 53                	jmp    116 <do_phase+0xf4>
-  c3:	c6 45 f7 32          	movb   $0x32,-0x9(%ebp)
+  c3:	c6 45 f7 32          	movb   $0x32,-0x9(%ebp)         # 2
   c7:	eb 4d                	jmp    116 <do_phase+0xf4>
-  c9:	c6 45 f7 3f          	movb   $0x3f,-0x9(%ebp)
+  c9:	c6 45 f7 3f          	movb   $0x3f,-0x9(%ebp)         # ?
   cd:	eb 47                	jmp    116 <do_phase+0xf4>
-  cf:	c6 45 f7 39          	movb   $0x39,-0x9(%ebp)
+  cf:	c6 45 f7 39          	movb   $0x39,-0x9(%ebp)         # 9
   d3:	eb 41                	jmp    116 <do_phase+0xf4>
-  d5:	c6 45 f7 37          	movb   $0x37,-0x9(%ebp)
+  d5:	c6 45 f7 37          	movb   $0x37,-0x9(%ebp)         # 7
   d9:	eb 3b                	jmp    116 <do_phase+0xf4>
-  db:	c6 45 f7 3b          	movb   $0x3b,-0x9(%ebp)
+  db:	c6 45 f7 3b          	movb   $0x3b,-0x9(%ebp)         # ;
   df:	eb 35                	jmp    116 <do_phase+0xf4>
-  e1:	c6 45 f7 51          	movb   $0x51,-0x9(%ebp)
+  e1:	c6 45 f7 51          	movb   $0x51,-0x9(%ebp)         # Q
   e5:	eb 2f                	jmp    116 <do_phase+0xf4>
-  e7:	c6 45 f7 3c          	movb   $0x3c,-0x9(%ebp)
+  e7:	c6 45 f7 3c          	movb   $0x3c,-0x9(%ebp)         # <
   eb:	eb 29                	jmp    116 <do_phase+0xf4>
-  ed:	c6 45 f7 33          	movb   $0x33,-0x9(%ebp)
+  ed:	c6 45 f7 33          	movb   $0x33,-0x9(%ebp)         # 3
   f1:	eb 23                	jmp    116 <do_phase+0xf4>
-  f3:	c6 45 f7 6b          	movb   $0x6b,-0x9(%ebp)
+  f3:	c6 45 f7 6b          	movb   $0x6b,-0x9(%ebp)         # k
   f7:	eb 1d                	jmp    116 <do_phase+0xf4>
-  f9:	c6 45 f7 7a          	movb   $0x7a,-0x9(%ebp)
+  f9:	c6 45 f7 7a          	movb   $0x7a,-0x9(%ebp)         # z
   fd:	eb 17                	jmp    116 <do_phase+0xf4>
-  ff:	c6 45 f7 4b          	movb   $0x4b,-0x9(%ebp)
+  ff:	c6 45 f7 4b          	movb   $0x4b,-0x9(%ebp)         # K
  103:	eb 11                	jmp    116 <do_phase+0xf4>
- 105:	c6 45 f7 6a          	movb   $0x6a,-0x9(%ebp)
+ 105:	c6 45 f7 6a          	movb   $0x6a,-0x9(%ebp)         # j
  109:	eb 0b                	jmp    116 <do_phase+0xf4>
- 10b:	c6 45 f7 48          	movb   $0x48,-0x9(%ebp)
+ 10b:	c6 45 f7 48          	movb   $0x48,-0x9(%ebp)         # H
  10f:	eb 05                	jmp    116 <do_phase+0xf4>
- 111:	c6 45 f7 6a          	movb   $0x6a,-0x9(%ebp)
+ 111:	c6 45 f7 6a          	movb   $0x6a,-0x9(%ebp)         # j
  115:	90                   	nop
  116:	8d 55 dc             	lea    -0x24(%ebp),%edx
  119:	8b 45 f0             	mov    -0x10(%ebp),%eax
@@ -123,7 +123,7 @@ Disassembly of section .text:
  13f:	83 ec 0c             	sub    $0xc,%esp
  142:	8d 45 dc             	lea    -0x24(%ebp),%eax
  145:	50                   	push   %eax
- 146:	e8 fc ff ff ff       	call   147 <do_phase+0x125>
+ 146:	e8 fc ff ff ff       	call   147 <do_phase+0x125>  # puts
  14b:	83 c4 10             	add    $0x10,%esp
  14e:	90                   	nop
  14f:	c9                   	leave  
