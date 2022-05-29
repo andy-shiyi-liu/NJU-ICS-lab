@@ -18,11 +18,11 @@ Disassembly of section .text:
   29:	01 d0                	add    %edx,%eax
   2b:	0f b6 00             	movzbl (%eax),%eax
   2e:	0f b6 c0             	movzbl %al,%eax
-  31:	0f b6 80 00 00 00 00 	movzbl 0x0(%eax),%eax
+  31:	0f b6 80 00 00 00 00 	movzbl 0x0(%eax),%eax # dZgFTJtxoG
   38:	0f be c0             	movsbl %al,%eax
   3b:	83 ec 0c             	sub    $0xc,%esp
   3e:	50                   	push   %eax
-  3f:	e8 fc ff ff ff       	call   40 <do_phase+0x40>
+  3f:	e8 fc ff ff ff       	call   40 <do_phase+0x40>  # putchar
   44:	83 c4 10             	add    $0x10,%esp
   47:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
   4b:	8b 45 f4             	mov    -0xc(%ebp),%eax
@@ -30,7 +30,7 @@ Disassembly of section .text:
   51:	76 d0                	jbe    23 <do_phase+0x23>
   53:	83 ec 0c             	sub    $0xc,%esp
   56:	6a 0a                	push   $0xa
-  58:	e8 fc ff ff ff       	call   59 <do_phase+0x59>
+  58:	e8 fc ff ff ff       	call   59 <do_phase+0x59>  # putchar
   5d:	83 c4 10             	add    $0x10,%esp
   60:	90                   	nop
   61:	c9                   	leave  
