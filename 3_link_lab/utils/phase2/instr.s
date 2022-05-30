@@ -3,8 +3,12 @@ movl $0x31313032, -0xc(%ebp)
 movl $0x37303038, -0x8(%ebp)
 movl $0x00000037, -0x4(%ebp)
 
+movl $0x766b786b, -0x1c(%ebp)
+movl $0x00666e45, -0x18(%ebp)
+
 lea -0xc(%ebp), %eax
-movl $0x804a10e, %edx
+lea -0x1c(%ebp), %edx
+
 pushl %eax
 pushl %edx
 
