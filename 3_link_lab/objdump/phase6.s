@@ -33,16 +33,16 @@ Disassembly of section .text:
 00000059 <transform_code>:
   59:	55                   	push   %ebp
   5a:	89 e5                	mov    %esp,%ebp
-  5c:	e8 fc ff ff ff       	call   5d <transform_code+0x4>
-  61:	05 01 00 00 00       	add    $0x1,%eax
-  66:	8b 90 00 00 00 00    	mov    0x0(%eax),%edx
+  5c:	e8 fc ff ff ff       	call   5d <transform_code+0x4>  # __x86.get_pc_thunk.ax
+  61:	05 01 00 00 00       	add    $0x1,%eax                # ? : _GLOBAL_OFFSET_TABLE_
+  66:	8b 90 00 00 00 00    	mov    0x0(%eax),%edx           # Asexun
   6c:	8b 4d 0c             	mov    0xc(%ebp),%ecx
   6f:	8b 14 8a             	mov    (%edx,%ecx,4),%edx
   72:	83 e2 07             	and    $0x7,%edx
   75:	83 fa 07             	cmp    $0x7,%edx
   78:	0f 87 85 00 00 00    	ja     103 <.L6>
   7e:	c1 e2 02             	shl    $0x2,%edx
-  81:	8b 94 02 50 00 00 00 	mov    0x50(%edx,%eax,1),%edx
+  81:	8b 94 02 50 00 00 00 	mov    0x50(%edx,%eax,1),%edx   # .rodata
   88:	01 c2                	add    %eax,%edx
   8a:	ff e2                	jmp    *%edx
 
@@ -51,7 +51,7 @@ Disassembly of section .text:
   8f:	eb 76                	jmp    107 <.L6+0x4>
 
 00000091 <.L13>:
-  91:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+  91:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax         # Asexun
   97:	8b 55 0c             	mov    0xc(%ebp),%edx
   9a:	8b 04 90             	mov    (%eax,%edx,4),%eax
   9d:	83 e0 03             	and    $0x3,%eax
@@ -60,7 +60,7 @@ Disassembly of section .text:
   a5:	eb 60                	jmp    107 <.L6+0x4>
 
 000000a7 <.L12>:
-  a7:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+  a7:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax         # Asexun
   ad:	8b 55 0c             	mov    0xc(%ebp),%edx
   b0:	8b 04 90             	mov    (%eax,%edx,4),%eax
   b3:	f7 d0                	not    %eax
@@ -68,7 +68,7 @@ Disassembly of section .text:
   b8:	eb 4d                	jmp    107 <.L6+0x4>
 
 000000ba <.L11>:
-  ba:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+  ba:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax         # Asexun
   c0:	8b 55 0c             	mov    0xc(%ebp),%edx
   c3:	8b 04 90             	mov    (%eax,%edx,4),%eax
   c6:	c1 e0 08             	shl    $0x8,%eax
@@ -76,14 +76,14 @@ Disassembly of section .text:
   cc:	eb 39                	jmp    107 <.L6+0x4>
 
 000000ce <.L10>:
-  ce:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+  ce:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax         # ?
   d4:	8b 55 0c             	mov    0xc(%ebp),%edx
   d7:	8b 04 90             	mov    (%eax,%edx,4),%eax
   da:	31 45 08             	xor    %eax,0x8(%ebp)
   dd:	eb 28                	jmp    107 <.L6+0x4>
 
 000000df <.L9>:
-  df:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+  df:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax         # Asexun
   e5:	8b 55 0c             	mov    0xc(%ebp),%edx
   e8:	8b 04 90             	mov    (%eax,%edx,4),%eax
   eb:	f7 d0                	not    %eax
@@ -91,7 +91,7 @@ Disassembly of section .text:
   f0:	eb 15                	jmp    107 <.L6+0x4>
 
 000000f2 <.L7>:
-  f2:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+  f2:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax         # ?
   f8:	8b 55 0c             	mov    0xc(%ebp),%edx
   fb:	8b 04 90             	mov    (%eax,%edx,4),%eax
   fe:	01 45 08             	add    %eax,0x8(%ebp)
@@ -109,22 +109,22 @@ Disassembly of section .text:
  10d:	89 e5                	mov    %esp,%ebp
  10f:	53                   	push   %ebx
  110:	83 ec 14             	sub    $0x14,%esp
- 113:	e8 fc ff ff ff       	call   114 <generate_code+0x8>
- 118:	81 c3 02 00 00 00    	add    $0x2,%ebx
- 11e:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 113:	e8 fc ff ff ff       	call   114 <generate_code+0x8>      # __x86.get_pc_thunk.bx
+ 118:	81 c3 02 00 00 00    	add    $0x2,%ebx                    # _GLOBAL_OFFSET_TABLE_
+ 11e:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax               # ??
  124:	8b 55 08             	mov    0x8(%ebp),%edx
  127:	89 10                	mov    %edx,(%eax)
  129:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
  130:	eb 25                	jmp    157 <generate_code+0x4b>
- 132:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 132:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax               # QXDbwQ
  138:	8b 00                	mov    (%eax),%eax
  13a:	83 ec 08             	sub    $0x8,%esp
  13d:	ff 75 f4             	pushl  -0xc(%ebp)
  140:	50                   	push   %eax
- 141:	e8 fc ff ff ff       	call   142 <generate_code+0x36>
+ 141:	e8 fc ff ff ff       	call   142 <generate_code+0x36>     # ?
  146:	83 c4 10             	add    $0x10,%esp
  149:	89 c2                	mov    %eax,%edx
- 14b:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 14b:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax               # QXDbwQ
  151:	89 10                	mov    %edx,(%eax)
  153:	83 45 f4 01          	addl   $0x1,-0xc(%ebp)
  157:	8b 45 f4             	mov    -0xc(%ebp),%eax
@@ -140,11 +140,11 @@ Disassembly of section .text:
  166:	89 e5                	mov    %esp,%ebp
  168:	53                   	push   %ebx
  169:	83 ec 14             	sub    $0x14,%esp
- 16c:	e8 fc ff ff ff       	call   16d <encode_1+0x8>
- 171:	81 c3 02 00 00 00    	add    $0x2,%ebx
+ 16c:	e8 fc ff ff ff       	call   16d <encode_1+0x8>         # __x86.get_pc_thunk.bx
+ 171:	81 c3 02 00 00 00    	add    $0x2,%ebx                  # ?
  177:	83 ec 0c             	sub    $0xc,%esp
  17a:	ff 75 08             	pushl  0x8(%ebp)
- 17d:	e8 fc ff ff ff       	call   17e <encode_1+0x19>
+ 17d:	e8 fc ff ff ff       	call   17e <encode_1+0x19>        # strlen
  182:	83 c4 10             	add    $0x10,%esp
  185:	89 45 f0             	mov    %eax,-0x10(%ebp)
  188:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
@@ -154,9 +154,9 @@ Disassembly of section .text:
  197:	01 d0                	add    %edx,%eax
  199:	0f b6 00             	movzbl (%eax),%eax
  19c:	0f be c0             	movsbl %al,%eax
- 19f:	8b 93 00 00 00 00    	mov    0x0(%ebx),%edx
+ 19f:	8b 93 00 00 00 00    	mov    0x0(%ebx),%edx             # BLeoVc
  1a5:	0f b6 14 02          	movzbl (%edx,%eax,1),%edx
- 1a9:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 1a9:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax             # QXDbwQ
  1af:	8b 00                	mov    (%eax),%eax
  1b1:	89 d1                	mov    %edx,%ecx
  1b3:	31 c1                	xor    %eax,%ecx
@@ -196,11 +196,11 @@ Disassembly of section .text:
  202:	89 e5                	mov    %esp,%ebp
  204:	53                   	push   %ebx
  205:	83 ec 14             	sub    $0x14,%esp
- 208:	e8 fc ff ff ff       	call   209 <encode_2+0x8>
- 20d:	81 c3 02 00 00 00    	add    $0x2,%ebx
+ 208:	e8 fc ff ff ff       	call   209 <encode_2+0x8>         # __x86.get_pc_thunk.bx
+ 20d:	81 c3 02 00 00 00    	add    $0x2,%ebx                  # _GLOBAL_OFFSET_TABLE_
  213:	83 ec 0c             	sub    $0xc,%esp
  216:	ff 75 08             	pushl  0x8(%ebp)
- 219:	e8 fc ff ff ff       	call   21a <encode_2+0x19>
+ 219:	e8 fc ff ff ff       	call   21a <encode_2+0x19>        # strlen
  21e:	83 c4 10             	add    $0x10,%esp
  221:	89 45 f0             	mov    %eax,-0x10(%ebp)
  224:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
@@ -210,9 +210,9 @@ Disassembly of section .text:
  233:	01 d0                	add    %edx,%eax
  235:	0f b6 00             	movzbl (%eax),%eax
  238:	0f be c0             	movsbl %al,%eax
- 23b:	8b 93 00 00 00 00    	mov    0x0(%ebx),%edx
+ 23b:	8b 93 00 00 00 00    	mov    0x0(%ebx),%edx             # ?
  241:	0f b6 14 02          	movzbl (%edx,%eax,1),%edx
- 245:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 245:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax             # QXDbwQ
  24b:	8b 00                	mov    (%eax),%eax
  24d:	8d 0c 02             	lea    (%edx,%eax,1),%ecx
  250:	8b 55 f4             	mov    -0xc(%ebp),%edx
@@ -260,14 +260,14 @@ Disassembly of section .text:
  2be:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
  2c4:	8b 40 04             	mov    0x4(%eax),%eax
  2c7:	83 ec 0c             	sub    $0xc,%esp
- 2ca:	8b 93 00 00 00 00    	mov    0x0(%ebx),%edx
+ 2ca:	8b 93 00 00 00 00    	mov    0x0(%ebx),%edx         # RSuXGBBe
  2d0:	52                   	push   %edx
  2d1:	ff d0                	call   *%eax
  2d3:	83 c4 10             	add    $0x10,%esp
  2d6:	83 ec 0c             	sub    $0xc,%esp
- 2d9:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 2d9:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax         # ?
  2df:	50                   	push   %eax
- 2e0:	e8 fc ff ff ff       	call   2e1 <do_phase+0x45>
+ 2e0:	e8 fc ff ff ff       	call   2e1 <do_phase+0x45>    # puts
  2e5:	83 c4 10             	add    $0x10,%esp
  2e8:	90                   	nop
  2e9:	8b 5d fc             	mov    -0x4(%ebp),%ebx

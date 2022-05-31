@@ -1,0 +1,70 @@
+
+Relocation section '.rel.text' at offset 0x9c0 contains 35 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000007  00001902 R_386_PC32        00000000   __x86.get_pc_thunk.ax
+0000000c  00001a0a R_386_GOTPC       00000000   _GLOBAL_OFFSET_TABLE_
+0000005d  00001902 R_386_PC32        00000000   __x86.get_pc_thunk.ax
+00000000  00000000 R_386_NONE                   _GLOBAL_OFFSET_TABLE_
+00000068  00001d2b R_386_GOT32X      00000020   Asexun
+00000084  00000509 R_386_GOTOFF      00000000   .rodata
+00000093  00001d2b R_386_GOT32X      00000020   Asexun
+000000a9  00001d2b R_386_GOT32X      00000020   Asexun
+000000bc  00001d2b R_386_GOT32X      00000020   Asexun
+00000000  00000000 R_386_NONE                   Asexun
+000000e1  00001d2b R_386_GOT32X      00000020   Asexun
+00000000  00000000 R_386_NONE                   Asexun
+00000114  00002102 R_386_PC32        00000000   __x86.get_pc_thunk.bx
+0000011a  00001a0a R_386_GOTPC       00000000   _GLOBAL_OFFSET_TABLE_
+00000000  00000000 R_386_NONE                   QXDbwQ
+00000134  00001e2b R_386_GOT32X      00000094   QXDbwQ
+00000000  00000000 R_386_NONE                   transform_code
+0000014d  00001e2b R_386_GOT32X      00000094   QXDbwQ
+0000016d  00002102 R_386_PC32        00000000   __x86.get_pc_thunk.bx
+00000000  00000000 R_386_NONE                   _GLOBAL_OFFSET_TABLE_
+0000017e  00002404 R_386_PLT32       00000000   strlen
+000001a1  0000222b R_386_GOT32X      00000080   BLeoVc
+000001ab  00001e2b R_386_GOT32X      00000094   QXDbwQ
+00000209  00002102 R_386_PC32        00000000   __x86.get_pc_thunk.bx
+0000020f  00001a0a R_386_GOTPC       00000000   _GLOBAL_OFFSET_TABLE_
+0000021a  00002404 R_386_PLT32       00000000   strlen
+00000000  00000000 R_386_NONE                   BLeoVc
+00000247  00001e2b R_386_GOT32X      00000094   QXDbwQ
+000002a4  00002102 R_386_PC32        00000000   __x86.get_pc_thunk.bx
+000002aa  00001a0a R_386_GOTPC       00000000   _GLOBAL_OFFSET_TABLE_
+000002b7  00002004 R_386_PLT32       0000010c   generate_code
+000002c0  0000262b R_386_GOT32X      00000000   encoder
+000002cc  00001c2b R_386_GOT32X      00000088   RSuXGBBe
+00000000  00000000 R_386_NONE                   RSuXGBBe
+000002e1  00002804 R_386_PLT32       00000000   puts
+
+Relocation section '.rel.rodata' at offset 0xad8 contains 8 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000050  00000d09 R_386_GOTOFF      0000008c   .L14
+00000054  00000e09 R_386_GOTOFF      00000091   .L13
+00000058  00000f09 R_386_GOTOFF      000000a7   .L12
+0000005c  00000b09 R_386_GOTOFF      00000103   .L6
+00000060  00001009 R_386_GOTOFF      000000ba   .L11
+00000064  00001109 R_386_GOTOFF      000000ce   .L10
+00000068  00001209 R_386_GOTOFF      000000df   .L9
+0000006c  00001309 R_386_GOTOFF      000000f2   .L7
+
+Relocation section '.rel.data.rel.local' at offset 0xb18 contains 1 entry:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000000  00000501 R_386_32          00000000   .rodata
+
+Relocation section '.rel.data.rel' at offset 0xb20 contains 3 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000000  00002301 R_386_32          00000165   encode_1
+00000004  00002501 R_386_32          00000201   encode_2
+00000008  00002701 R_386_32          0000029c   do_phase
+
+Relocation section '.rel.eh_frame' at offset 0xb38 contains 8 entries:
+ Offset     Info    Type            Sym.Value  Sym. Name
+00000020  00000202 R_386_PC32        00000000   .text
+00000040  00000202 R_386_PC32        00000000   .text
+00000060  00000202 R_386_PC32        00000000   .text
+00000084  00000202 R_386_PC32        00000000   .text
+000000a8  00000202 R_386_PC32        00000000   .text
+000000cc  00000202 R_386_PC32        00000000   .text
+000000f0  00000802 R_386_PC32        00000000   .text.__x86.get_pc_thu
+00000104  00000902 R_386_PC32        00000000   .text.__x86.get_pc_thu

@@ -1,4 +1,4 @@
-phase=5
+phase=6
 
 gcc -no-pie -o /home/ubuntu/work/ICS_lab/3_link_lab/linkbomb /home/ubuntu/work/ICS_lab/3_link_lab/src/main.o /home/ubuntu/work/ICS_lab/3_link_lab/src/phase$phase.o -m32
 
