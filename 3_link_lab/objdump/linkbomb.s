@@ -210,7 +210,7 @@ Disassembly of section .text:
  804921f:	55                   	push   %ebp
  8049220:	89 e5                	mov    %esp,%ebp
  8049222:	e8 8d 02 00 00       	call   80494b4 <__x86.get_pc_thunk.ax>
- 8049227:	05 01 00 00 00       	add    $0x1,%eax
+ 8049227:	05 d9 2d 00 00       	add    $0x2dd9,%eax
  804922c:	c7 c2 40 a1 04 08    	mov    $0x804a140,%edx
  8049232:	8b 4d 0c             	mov    0xc(%ebp),%ecx
  8049235:	8b 14 8a             	mov    (%edx,%ecx,4),%edx
@@ -252,7 +252,7 @@ Disassembly of section .text:
  8049292:	eb 39                	jmp    80492cd <.L6+0x4>
 
 08049294 <.L10>:
- 8049294:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+ 8049294:	c7 c0 40 a1 04 08    	mov    $0x804a140,%eax
  804929a:	8b 55 0c             	mov    0xc(%ebp),%edx
  804929d:	8b 04 90             	mov    (%eax,%edx,4),%eax
  80492a0:	31 45 08             	xor    %eax,0x8(%ebp)
@@ -267,7 +267,7 @@ Disassembly of section .text:
  80492b6:	eb 15                	jmp    80492cd <.L6+0x4>
 
 080492b8 <.L7>:
- 80492b8:	8b 80 00 00 00 00    	mov    0x0(%eax),%eax
+ 80492b8:	c7 c0 40 a1 04 08    	mov    $0x804a140,%eax
  80492be:	8b 55 0c             	mov    0xc(%ebp),%edx
  80492c1:	8b 04 90             	mov    (%eax,%edx,4),%eax
  80492c4:	01 45 08             	add    %eax,0x8(%ebp)
@@ -287,7 +287,7 @@ Disassembly of section .text:
  80492d6:	83 ec 14             	sub    $0x14,%esp
  80492d9:	e8 e2 fd ff ff       	call   80490c0 <__x86.get_pc_thunk.bx>
  80492de:	81 c3 22 2d 00 00    	add    $0x2d22,%ebx
- 80492e4:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 80492e4:	c7 c0 d4 c0 04 08    	mov    $0x804c0d4,%eax
  80492ea:	8b 55 08             	mov    0x8(%ebp),%edx
  80492ed:	89 10                	mov    %edx,(%eax)
  80492ef:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
@@ -297,7 +297,7 @@ Disassembly of section .text:
  8049300:	83 ec 08             	sub    $0x8,%esp
  8049303:	ff 75 f4             	pushl  -0xc(%ebp)
  8049306:	50                   	push   %eax
- 8049307:	e8 fc ff ff ff       	call   8049308 <generate_code+0x36>
+ 8049307:	e8 13 ff ff ff       	call   804921f <transform_code>
  804930c:	83 c4 10             	add    $0x10,%esp
  804930f:	89 c2                	mov    %eax,%edx
  8049311:	c7 c0 d4 c0 04 08    	mov    $0x804c0d4,%eax
@@ -317,7 +317,7 @@ Disassembly of section .text:
  804932e:	53                   	push   %ebx
  804932f:	83 ec 14             	sub    $0x14,%esp
  8049332:	e8 89 fd ff ff       	call   80490c0 <__x86.get_pc_thunk.bx>
- 8049337:	81 c3 02 00 00 00    	add    $0x2,%ebx
+ 8049337:	81 c3 c9 2c 00 00    	add    $0x2cc9,%ebx
  804933d:	83 ec 0c             	sub    $0xc,%esp
  8049340:	ff 75 08             	pushl  0x8(%ebp)
  8049343:	e8 08 fd ff ff       	call   8049050 <strlen@plt>
@@ -386,7 +386,7 @@ Disassembly of section .text:
  80493f9:	01 d0                	add    %edx,%eax
  80493fb:	0f b6 00             	movzbl (%eax),%eax
  80493fe:	0f be c0             	movsbl %al,%eax
- 8049401:	8b 93 00 00 00 00    	mov    0x0(%ebx),%edx
+ 8049401:	c7 c2 a0 a1 04 08    	mov    $0x804a1a0,%edx
  8049407:	0f b6 14 02          	movzbl (%edx,%eax,1),%edx
  804940b:	c7 c0 d4 c0 04 08    	mov    $0x804c0d4,%eax
  8049411:	8b 00                	mov    (%eax),%eax
@@ -441,7 +441,7 @@ Disassembly of section .text:
  8049497:	ff d0                	call   *%eax
  8049499:	83 c4 10             	add    $0x10,%esp
  804949c:	83 ec 0c             	sub    $0xc,%esp
- 804949f:	8b 83 00 00 00 00    	mov    0x0(%ebx),%eax
+ 804949f:	c7 c0 c8 c0 04 08    	mov    $0x804c0c8,%eax
  80494a5:	50                   	push   %eax
  80494a6:	e8 95 fb ff ff       	call   8049040 <puts@plt>
  80494ab:	83 c4 10             	add    $0x10,%esp
@@ -451,10 +451,8 @@ Disassembly of section .text:
  80494b3:	c3                   	ret    
 
 080494b4 <__x86.get_pc_thunk.ax>:
- 80494b4:	90                   	nop
- 80494b5:	90                   	nop
- 80494b6:	90                   	nop
- 80494b7:	90                   	nop
+ 80494b4:	8b 04 24             	mov    (%esp),%eax
+ 80494b7:	c3                   	ret    
  80494b8:	66 90                	xchg   %ax,%ax
  80494ba:	66 90                	xchg   %ax,%ax
  80494bc:	66 90                	xchg   %ax,%ax
