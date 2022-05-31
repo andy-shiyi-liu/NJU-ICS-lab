@@ -30,41 +30,41 @@ Disassembly of section .text:
   40:	55                   	push   %ebp
   41:	89 e5                	mov    %esp,%ebp
   43:	8b 45 0c             	mov    0xc(%ebp),%eax
-  46:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  46:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax   # Asexun
   4d:	83 e0 07             	and    $0x7,%eax
   50:	83 f8 07             	cmp    $0x7,%eax
   53:	77 74                	ja     c9 <transform_code+0x89>
-  55:	8b 04 85 50 00 00 00 	mov    0x50(,%eax,4),%eax
+  55:	8b 04 85 50 00 00 00 	mov    0x50(,%eax,4),%eax  # .rodata
   5c:	ff e0                	jmp    *%eax
   5e:	f7 55 08             	notl   0x8(%ebp)
   61:	eb 6a                	jmp    cd <transform_code+0x8d>
   63:	8b 45 0c             	mov    0xc(%ebp),%eax
-  66:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  66:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax   # Asexun
   6d:	83 e0 03             	and    $0x3,%eax
   70:	89 c1                	mov    %eax,%ecx
   72:	d3 7d 08             	sarl   %cl,0x8(%ebp)
   75:	eb 56                	jmp    cd <transform_code+0x8d>
   77:	8b 45 0c             	mov    0xc(%ebp),%eax
-  7a:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  7a:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax   # ?? : Asexun
   81:	f7 d0                	not    %eax
   83:	21 45 08             	and    %eax,0x8(%ebp)
   86:	eb 45                	jmp    cd <transform_code+0x8d>
   88:	8b 45 0c             	mov    0xc(%ebp),%eax
-  8b:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  8b:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax   # Asexun
   92:	c1 e0 08             	shl    $0x8,%eax
   95:	09 45 08             	or     %eax,0x8(%ebp)
   98:	eb 33                	jmp    cd <transform_code+0x8d>
   9a:	8b 45 0c             	mov    0xc(%ebp),%eax
-  9d:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  9d:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax   # Asexun
   a4:	31 45 08             	xor    %eax,0x8(%ebp)
   a7:	eb 24                	jmp    cd <transform_code+0x8d>
   a9:	8b 45 0c             	mov    0xc(%ebp),%eax
-  ac:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  ac:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax  # Asexun
   b3:	f7 d0                	not    %eax
   b5:	09 45 08             	or     %eax,0x8(%ebp)
   b8:	eb 13                	jmp    cd <transform_code+0x8d>
   ba:	8b 45 0c             	mov    0xc(%ebp),%eax
-  bd:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax
+  bd:	8b 04 85 00 00 00 00 	mov    0x0(,%eax,4),%eax  # Asexun
   c4:	01 45 08             	add    %eax,0x8(%ebp)
   c7:	eb 04                	jmp    cd <transform_code+0x8d>
   c9:	f7 5d 08             	negl   0x8(%ebp)
@@ -78,15 +78,15 @@ Disassembly of section .text:
   d3:	89 e5                	mov    %esp,%ebp
   d5:	83 ec 10             	sub    $0x10,%esp
   d8:	8b 45 08             	mov    0x8(%ebp),%eax
-  db:	a3 00 00 00 00       	mov    %eax,0x0
-  e0:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+  db:	a3 00 00 00 00       	mov    %eax,0x0         # ? : QXDbwQ
+  e0:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)  
   e7:	eb 1a                	jmp    103 <generate_code+0x31>
-  e9:	a1 00 00 00 00       	mov    0x0,%eax
+  e9:	a1 00 00 00 00       	mov    0x0,%eax         # QXDbwQ
   ee:	ff 75 fc             	pushl  -0x4(%ebp)
   f1:	50                   	push   %eax
-  f2:	e8 fc ff ff ff       	call   f3 <generate_code+0x21>
+  f2:	e8 fc ff ff ff       	call   f3 <generate_code+0x21> # transform_code
   f7:	83 c4 08             	add    $0x8,%esp
-  fa:	a3 00 00 00 00       	mov    %eax,0x0
+  fa:	a3 00 00 00 00       	mov    %eax,0x0         # ? : QXDbwQ
   ff:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
  103:	8b 45 fc             	mov    -0x4(%ebp),%eax
  106:	83 f8 0b             	cmp    $0xb,%eax
@@ -101,7 +101,7 @@ Disassembly of section .text:
  111:	83 ec 18             	sub    $0x18,%esp
  114:	83 ec 0c             	sub    $0xc,%esp
  117:	ff 75 08             	pushl  0x8(%ebp)
- 11a:	e8 fc ff ff ff       	call   11b <encode_1+0xd>
+ 11a:	e8 fc ff ff ff       	call   11b <encode_1+0xd>   # strlen
  11f:	83 c4 10             	add    $0x10,%esp
  122:	89 45 f0             	mov    %eax,-0x10(%ebp)
  125:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
@@ -111,8 +111,8 @@ Disassembly of section .text:
  134:	01 d0                	add    %edx,%eax
  136:	0f b6 00             	movzbl (%eax),%eax
  139:	0f be c0             	movsbl %al,%eax
- 13c:	0f b6 80 00 00 00 00 	movzbl 0x0(%eax),%eax
- 143:	8b 15 00 00 00 00    	mov    0x0,%edx
+ 13c:	0f b6 80 00 00 00 00 	movzbl 0x0(%eax),%eax       # BLeoVc
+ 143:	8b 15 00 00 00 00    	mov    0x0,%edx             # ? : QXDbwQ
  149:	31 d0                	xor    %edx,%eax
  14b:	89 c1                	mov    %eax,%ecx
  14d:	8b 55 f4             	mov    -0xc(%ebp),%edx
@@ -151,7 +151,7 @@ Disassembly of section .text:
  199:	83 ec 18             	sub    $0x18,%esp
  19c:	83 ec 0c             	sub    $0xc,%esp
  19f:	ff 75 08             	pushl  0x8(%ebp)
- 1a2:	e8 fc ff ff ff       	call   1a3 <encode_2+0xd>
+ 1a2:	e8 fc ff ff ff       	call   1a3 <encode_2+0xd>     # strlen
  1a7:	83 c4 10             	add    $0x10,%esp
  1aa:	89 45 f0             	mov    %eax,-0x10(%ebp)
  1ad:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%ebp)
@@ -161,8 +161,8 @@ Disassembly of section .text:
  1bc:	01 d0                	add    %edx,%eax
  1be:	0f b6 00             	movzbl (%eax),%eax
  1c1:	0f be c0             	movsbl %al,%eax
- 1c4:	0f b6 80 00 00 00 00 	movzbl 0x0(%eax),%eax
- 1cb:	8b 15 00 00 00 00    	mov    0x0,%edx
+ 1c4:	0f b6 80 00 00 00 00 	movzbl 0x0(%eax),%eax         # BLeoVc
+ 1cb:	8b 15 00 00 00 00    	mov    0x0,%edx               # QXDbwQ
  1d1:	8d 0c 10             	lea    (%eax,%edx,1),%ecx
  1d4:	8b 55 f4             	mov    -0xc(%ebp),%edx
  1d7:	8b 45 08             	mov    0x8(%ebp),%eax
@@ -199,16 +199,16 @@ Disassembly of section .text:
  21e:	89 e5                	mov    %esp,%ebp
  220:	83 ec 08             	sub    $0x8,%esp
  223:	68 a5 00 00 00       	push   $0xa5
- 228:	e8 fc ff ff ff       	call   229 <do_phase+0xc>
+ 228:	e8 fc ff ff ff       	call   229 <do_phase+0xc>     # generate_code
  22d:	83 c4 04             	add    $0x4,%esp
- 230:	a1 04 00 00 00       	mov    0x4,%eax
+ 230:	a1 04 00 00 00       	mov    0x4,%eax               # encoder
  235:	83 ec 0c             	sub    $0xc,%esp
- 238:	68 00 00 00 00       	push   $0x0
+ 238:	68 00 00 00 00       	push   $0x0                   # ?
  23d:	ff d0                	call   *%eax
  23f:	83 c4 10             	add    $0x10,%esp
  242:	83 ec 0c             	sub    $0xc,%esp
- 245:	68 00 00 00 00       	push   $0x0
- 24a:	e8 fc ff ff ff       	call   24b <do_phase+0x2e>
+ 245:	68 00 00 00 00       	push   $0x0                   # ?
+ 24a:	e8 fc ff ff ff       	call   24b <do_phase+0x2e>    # puts
  24f:	83 c4 10             	add    $0x10,%esp
  252:	90                   	nop
  253:	c9                   	leave  
